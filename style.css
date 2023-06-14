@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
+}
+
+h1,
+p {
+  user-select: none;
+}
+
+header {
+  height: 50px;
+  background-color: #3d5536;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+  width: 100%;
+}
+
+.game-platform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2f402a;
+  width: 420px;
+  height: 460px;
+  color: white;
+  border-radius: 15px;
+}
+
+.turn-player p {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+table {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+}
+
+tr > td {
+  font-size: 3.2rem;
+  text-align: center;
+  border: 2px solid #999;
+  color: #abbfa4;
+  width: 33.33%;
+  height: 33.33%;
+  cursor: pointer;
+}
+
+tr > td:hover {
+  background-color: #2d3c26;
+  transition: 0.25s ease-out;
+}
+
+.btn {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.reset-game p {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+}
+
+/* adjustments */
+
+.reset-game p {
+  opacity: 0;
+}
+
+/* classLists */
+
+#reset-button:hover {
+  background-color: #b02a37;
+  border-color: #b02a37;
+  transition: 0.2s ease-out;
+}
+
+#visible-warning-para {
+  opacity: 1;
+  transition: 0.8s ease;
+}
+
+#winner {
+  color: #b26662;
+  transition: 0.5s ease;
+}
+
+/* mobile adjustments */
+
+@media screen and (max-width: 450px) {
+  .game-platform {
+    width: 340px;
+    height: 380px;
+  }
+
+  .gameboard table {
+    width: 240px;
+    height: 240px;
+  }
+
+  .turn-player p {
+    font-size: 1.6rem;
+  }
+
+  .reset-game p {
+    font-size: 14px;
+  }
+
+  .reset-game .btn-dark {
+    font-size: 15px;
+  }
+}
