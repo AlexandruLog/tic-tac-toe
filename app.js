@@ -41,15 +41,15 @@ const winnerCombos = [
 function checkWinner() {
   for (let array of winnerCombos) {
     let foundO = 0;
-    let foundXSymbol = 0;
+    let foundX = 0;
     for (let index of array) {
       if (cell[index].textContent == gameSymbols[0]) {
-        ++foundXSymbol;
+        ++foundX;
       } else if (cell[index].textContent == gameSymbols[1]) {
         ++foundO;
       }
     }
-    if (foundXSymbol == 3) {
+    if (foundX == 3) {
       for (let cellIndex of array) {
         cell[cellIndex].id = "winner";
       }
