@@ -8,7 +8,8 @@
 }
 
 h1,
-p {
+p,
+td {
   user-select: none;
 }
 
@@ -103,6 +104,10 @@ tr > td:hover {
 #winner {
   color: #b26662;
   transition: 0.5s ease;
+}
+
+.disabled-cell {
+  cursor: default;
 }
 
 /* mobile adjustments */
