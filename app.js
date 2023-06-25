@@ -13,10 +13,12 @@ function createGame() {
 createGame();
 
 let gameMoves = 0;
+let gameOver = false;
 
 function clickCell(indexCell) {
   cell[indexCell].textContent = goPlayer;
   cell[indexCell].removeAttribute("onclick", `clickCell(${indexCell})`);
+  cell[indexCell].classList.add("disabled-cell");
   if (goPlayer == gameSymbols[0]) {
     goPlayer = gameSymbols[1];
   } else {
@@ -49,36 +51,36 @@ function checkWinner() {
         ++foundO;
       }
     }
+    //Display Winner
     if (foundX == 3) {
-      for (let cellIndex of array) {
-        cell[cellIndex].id = "winner";
-      }
       infoTurn.innerHTML = "Winner X &#128079";
-      stopGame();
     } else if (foundO == 3) {
+      infoTurn.innerHTML = "Winner 0 &#128079";
+    } else if (gameMoves == 9 && !gameOver) {
+      infoTurn.innerHTML = "Draw &#127884";
+    }
+    //Show Winner
+    if (foundX == 3 || foundO == 3 || gameMoves == 9) {
       for (let cellIndex of array) {
         cell[cellIndex].id = "winner";
       }
-      infoTurn.innerHTML = "Winner 0 &#128079";
       stopGame();
-    } else if (gameMoves == 9 && !stopped) {
-      infoTurn.innerHTML = "Draw &#127884";
     }
   }
 }
 
-let stopped = false;
 function stopGame() {
-  stopped = true;
+  gameOver = true;
   for (let index = 0; index < 9; ++index) {
     cell[index].removeAttribute("onclick", `clickCell(${index})`);
+    cell[index].classList.add("disabled-cell");
   }
 }
 
 let resetIndex = 0;
 
 function resetGame() {
-  if (resetIndex) {
+  if (resetIndex || gameOver) {
     location.reload();
   } else {
     ++resetIndex;
